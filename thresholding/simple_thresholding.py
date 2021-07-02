@@ -2,7 +2,7 @@
 import cv2
 
 # load the image
-path = 
+path = "image.png"
 image = cv2.imread(path)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 # remove unecessary high frequency edges
