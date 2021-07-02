@@ -10,8 +10,13 @@ blur = cv2.GaussianBlur(gray, (7, 7), 0)
 
 # threshold (black bg)
 (T, threshInv) = cv2.threshold(blur, 200, 255, cv2.THRESH_BINARY_INV)
-cv2.imdshow("Threshold binary inverse", threshInv)
+cv2.imshow("Threshold binary inverse", threshInv)
 
 # using normal thresholding (white bg)
 (T, thresh) = cv2.threshold(blur, 200, 255, cv2.THRESH_BINARY)
-cv2.imdshow("Threshold binary inverse", thresh)
+cv2.imshow("Threshold binary inverse", thresh)
+
+# visualize only the masked regions in the image
+masked = cv2.bitwise_and(image, image, mask=threshInv)
+cv2.imshow("Output", masked)
+cv2.waitKey(0)
